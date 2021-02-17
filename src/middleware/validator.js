@@ -5,10 +5,12 @@ module.exports = function (request, response, next) {
     name: request.query.name,
   };
   if (!person.name) {
-    response.status(500).send({
-      status: 500,
-      error: 'No name',
-    });
+    next('No name on query');
+    // response.status(500).send({
+    //   status: 500,
+    //   error: 'No name',
+    // });
+  } else {
+    next();
   }
-  next();
 };

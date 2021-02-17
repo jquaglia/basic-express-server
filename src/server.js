@@ -14,8 +14,8 @@ app.use(express.json());
 // ========= Routes =========
 app.get('/person', logger, validator, getPersonHandler);
 
-app.use('*', errorHandler404);
 app.use(errorHandler500);
+app.use(errorHandler404);
 
 // ========= Route Handlers =========
 function getPersonHandler(request, response) {
